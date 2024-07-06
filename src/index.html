@@ -8,51 +8,95 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Variable&family=Yu+Gothic:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/earlyaccess/tsukushimarugothic.css" rel="stylesheet" />
   <title>すれ違いで偶然の交流を楽しむ</title>
   <style>
     body {
-      font-family: 'Yu Gothic', '游ゴシック体', sans-serif;
+      font-family: 'Tsukushi A Round Gothic', '筑紫A丸ゴシック', sans-serif;
       background-color: #fff;
       margin: 0;
       padding: 0;
     }
+
     header {
       display: flex;
       align-items: center;
       padding: 10px;
+      position: relative;
     }
+
     header img {
-      height: 60px;
+      height: 90px; /* 1.5倍に拡大 */
+      transition: transform 0.2s;
     }
+
+    .fixed-logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: 90px;
+    }
+
+    .fixed-logo:hover {
+      animation: shake 0.5s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      10% { transform: translate(-1px, -2px) rotate(-1deg); }
+      20% { transform: translate(-3px, 0px) rotate(1deg); }
+      30% { transform: translate(3px, 2px) rotate(0deg); }
+      40% { transform: translate(1px, -1px) rotate(1deg); }
+      50% { transform: translate(-1px, 2px) rotate(-1deg); }
+      60% { transform: translate(-3px, 1px) rotate(0deg); }
+      70% { transform: translate(3px, 1px) rotate(-1deg); }
+      80% { transform: translate(-1px, -1px) rotate(1deg); }
+      90% { transform: translate(1px, 2px) rotate(0deg); }
+      100% { transform: translate(1px, -2px) rotate(-1deg); }
+    }
+
     main {
       margin: auto;
       width: 80%;
       padding: 20px;
       text-align: center;
     }
+
     img {
       max-width: 100%;
       height: auto;
     }
+
     .content {
       text-align: left;
       font-size: 1.2em;
       line-height: 1.6;
     }
+
     h1, h2 {
       font-family: 'Source Serif Variable', serif;
     }
+
     p, li {
       font-family: 'Yu Gothic', '游ゴシック体', sans-serif;
+    }
+
+    .qr-code {
+      margin-top: 20px;
+    }
+
+    ul {
+      padding-left: 20px; /* リストマーカーを文章に近づける */
+      list-style-position: inside; /* リストマーカーをテキストの内側に配置 */
     }
   </style>
 </head>
 
 <body>
   <header>
-    <img src="img_0839.png" alt="エンパスロゴ">
+    <img src="img_0839.png" alt="固定エンパスロゴ" class="fixed-logo">
+    <img src="img_0839.png" alt="エンパスロゴ" id="logo">
   </header>
-  
   <main id="index">
     <div id="mainArea" class="cbox">
       <div class="bg">
@@ -72,15 +116,39 @@
               <li>地元商店街で使えるポイントシステム</li>
               <li>地域ニュースやアート情報の共有</li>
             </ul>
-            <h2>使い方</h2>
-            <p>「エンパス」をダウンロードしてアカウントを作成し、アプリを起動して歩くだけで、新しい出会いや情報が手に入ります。</p>
-            <h2>未来のビジョン</h2>
-            <p>「エンパス」は、地域のつながりを強化し、コミュニティの活性化を目指しています。すれ違いを通じて、新しい出会いや情報を楽しみましょう。</p>
+          </div>
+          <h2>使い方</h2>
+          <p>「エンパス」をダウンロードしてアカウントを作成し、アプリを起動して歩くだけで、新しい出会いや情報が手に入ります。</p>
+          <h2>未来のビジョン</h2>
+          <p>「エンパス」は、地域のつながりを強化し、コミュニティの活性化を目指しています。すれ違いを通じて、新しい出会いや情報を楽しみましょう。</p>
+          <div class="qr-code">
+            <h2>スマホ用QRコード</h2>
+            <img src="android_qr.png" alt="Android QRコード">
           </div>
         </div>
       </div>
     </div>
   </main>
+  <script>
+    window.onload = function() {
+      var logo = document.getElementById('logo');
+      var maxWidth = window.innerWidth - logo.offsetWidth;
+      var maxHeight = window.innerHeight - logo.offsetHeight;
+
+      function getRandomPosition() {
+        var randomX = Math.floor(Math.random() * maxWidth);
+        var randomY = Math.floor(Math.random() * maxHeight);
+        return { x: randomX, y: randomY };
+      }
+
+      function moveLogo() {
+        var position = getRandomPosition();
+        logo.style.transform = `translate(${position.x}px, ${position.y}px) scale(${Math.random() * 1.5 + 0.5})`;
+      }
+
+      setInterval(moveLogo, 1000);
+    };
+  </script>
 </body>
 
 </html>
