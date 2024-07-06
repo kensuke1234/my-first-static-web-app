@@ -7,12 +7,11 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Variable&family=Yu+Gothic:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/earlyaccess/tsukushimarugothic.css" rel="stylesheet" />
   <title>すれ違いで偶然の交流を楽しむ</title>
   <style>
     body {
-      font-family: 'Tsukushi A Round Gothic', '筑紫A丸ゴシック', sans-serif;
+      font-family: '筑紫A丸ゴシック';
       background-color: #fff;
       margin: 0;
       padding: 0;
@@ -26,7 +25,7 @@
     }
 
     header img {
-      height: 100px; /* 1.5倍に拡大 */
+      height: 90px; /* 1.5倍に拡大 */
       transition: transform 0.2s;
     }
 
@@ -60,10 +59,11 @@
       width: 80%;
       padding: 20px;
       text-align: center;
+      position: relative;
     }
 
     img {
-      max-width: 100%;
+      max-width: 80%;
       height: auto;
     }
 
@@ -73,12 +73,8 @@
       line-height: 1.6;
     }
 
-    h1, h2 {
-      font-family: 'Source Serif Variable', serif;
-    }
-
-    p, li {
-      font-family: 'Yu Gothic', '游ゴシック体', sans-serif;
+    h1, h2, p, li {
+      font-family: '筑紫A丸ゴシック', sans-serif;
     }
 
     .qr-code {
@@ -89,18 +85,37 @@
       padding-left: 20px; /* リストマーカーを文章に近づける */
       list-style-position: inside; /* リストマーカーをテキストの内側に配置 */
     }
+
+    .floating-logo {
+      position: absolute;
+      height: 90px;
+      z-index: 10;
+    }
+
+    #elephant {
+      position: absolute;
+      width: 150px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: transform 0.2s;
+    }
+
+    #elephant:hover {
+      animation: shake 0.5s infinite;
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <img src="IMG_0850.png" alt="固定エンパスロゴ" class="fixed-logo">
-    <img src="IMG_0850.png" alt="エンパスロゴ" id="logo">
+    <img src="iMG_0863.png" alt="固定エンパスロゴ" class="fixed-logo">
+    <img src="IMG_0863.png" alt="エンパスロゴ" id="logo" class="floating-logo">
   </header>
   <main id="index">
     <div id="mainArea" class="cbox">
       <div class="bg">
-        <img class="visual" src="イラストメイン.gif" alt="Main Visual" />
+        <img class="visual" src="IMG_0857.png" alt="Main Visual 1" />
       </div>
       <div id="main_c">
         <div class="inner">
